@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitly Clone</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f4; }
+        .container { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        input[type="url"] { width: 80%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #218838; }
+        .result { margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 4px; }
+        a { color: #155724; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>✂️ URL Shortener</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <input type="url" name="original_url" placeholder="Paste long URL here..." required>
+        <button type="submit">Shorten</button>
+    </form>
+
+    {% if new_link %}
+    <div class="result">
+        <p>Success! Here is your short link:</p>
+        <a href="{{ new_link }}" target="_blank">{{ new_link }}</a>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
