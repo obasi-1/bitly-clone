@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
 from .serializers import LinkSerializer
 
 def home_view(request):
@@ -34,19 +35,16 @@ def redirect_view(request, short_code):
     # 3. Send them to the destination
     return redirect(link.original_url)
 
+@swagger_auto_schema(method='post', request_body=LinkSerializer)  # <-- THIS LINE FIXES IT
 @api_view(['POST'])
 def create_short_link_api(request):
     """
     API Endpoint: Accepts JSON {'original_url': '...'} and returns short link.
     """
-    # 1. Pass the data to the serializer (The Translator)
     serializer = LinkSerializer(data=request.data)
     
-    # 2. Validate (Is it a real URL?)
     if serializer.is_valid():
-        # 3. Save (The Model's save() method will still trigger and generate the code!)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
-    # 4. Error handling
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
