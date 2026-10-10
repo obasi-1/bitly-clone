@@ -11,10 +11,13 @@ DEBUG = not IS_PRODUCTION
 # Secure the secret key
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-fallback-local-secret-key-here')
 
-# Automatically allow the Render URL
+# Automatically allow the Render URL and explicitly add your domain
 ALLOWED_HOSTS = []
 if IS_PRODUCTION:
-    ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
+    ALLOWED_HOSTS = [
+        os.environ.get('RENDER_EXTERNAL_HOSTNAME', ''),
+        'https://bitly-clone-0cgs.onrender.com'
+    ]
 else:
     ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost'])
 
