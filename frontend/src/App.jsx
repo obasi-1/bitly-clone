@@ -72,7 +72,16 @@ function App() {
   return (
     <div className="app-container">
       <div className="card">
-        <h1>✂️ Bitly Clone</h1>
+        
+        {/* New Trimly Logo and Title */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '20px' }}>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="12" r="4.5" fill="#3B82F6" />
+            <path d="M11.5 12H16" stroke="#93C5FD" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 3" />
+            <circle cx="19" cy="12" r="2.5" fill="#1D4ED8" />
+          </svg>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#1e293b' }}>Trimly</h1>
+        </div>
         
         <div className="tab-container">
           <button 
@@ -130,7 +139,7 @@ function App() {
                 type="text"
                 value={trackUrl}
                 onChange={(e) => setTrackUrl(e.target.value)}
-                placeholder="Paste short link (e.g., http://127.0.0.1:8000/AbCdEf)"
+                placeholder="Paste short link (e.g., https://bitly-clone-0cgs.onrender.com/AbCdEf)"
                 required
                 className="url-input"
               />
