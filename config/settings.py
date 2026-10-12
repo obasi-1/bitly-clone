@@ -16,7 +16,7 @@ ALLOWED_HOSTS = []
 if IS_PRODUCTION:
     ALLOWED_HOSTS = [
         os.environ.get('RENDER_EXTERNAL_HOSTNAME', ''),
-        'https://bitly-clone-0cgs.onrender.com'
+        'bitly-clone-0cgs.onrender.com'
     ]
 else:
     ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost'])
@@ -27,15 +27,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9usqg&#fo$qzj311u#$7)v=qqsw6m$ef=l9zm0c)#c$6_p!5#w'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
