@@ -133,7 +133,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 if IS_PRODUCTION:
     CORS_ALLOWED_ORIGINS = [
-        "https://bitly-clone-umber.vercel.app",
+        "trimly-ui.vercel.app",
     ]
 else:
     CORS_ALLOW_ALL_ORIGINS = True

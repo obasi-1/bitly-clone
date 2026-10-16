@@ -23,14 +23,14 @@ function App() {
     setCopied(false) 
     
     try {
-      const response = await fetch('https://bitly-clone-0cgs.onrender.com/api/create/', {
+      const response = await fetch('https://trimly-backend-w8ge.onrender.com/api/create/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ original_url: originalUrl }) 
       })
       const data = await response.json()
       if (response.ok) {
-        setShortUrl(`https://bitly-clone-0cgs.onrender.com/${data.short_code}`)
+        setShortUrl(`https://trimly-backend-w8ge.onrender.com/${data.short_code}`)
       }
     } catch (error) {
       console.error("Failed to shorten URL:", error)
@@ -49,7 +49,7 @@ function App() {
     const code = trackUrl.split('/').filter(Boolean).pop()
 
     try {
-      const response = await fetch(`https://bitly-clone-0cgs.onrender.com/api/stats/${code}/`)
+      const response = await fetch(`https://trimly-backend-w8ge.onrender.com/api/stats/${code}/`)
       if (response.ok) {
         const data = await response.json()
         setStats(data)
@@ -139,7 +139,7 @@ function App() {
                 type="text"
                 value={trackUrl}
                 onChange={(e) => setTrackUrl(e.target.value)}
-                placeholder="Paste short link (e.g., https://bitly-clone-0cgs.onrender.com/AbCdEf)"
+                placeholder="Paste short link (e.g., https://trimly-backend-w8ge.onrender.com/AbCdEf)"
                 required
                 className="url-input"
               />
